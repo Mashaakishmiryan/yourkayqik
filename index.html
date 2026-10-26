@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="hy">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>YourKayqik</title>
+  <meta name="claude:viewport-fit-sides" content="cover">
+  <meta name="description" content="Սիրուն կայքեր CV-ի, պորտֆոլիոյի, բժիշկների, հարսանիքների և ծնունդների համար։ 15 000 – 25 000 ֏ · պատրաստ է 1–2 օրում։">
+  <meta property="og:title" content="YourKayqik · քո կայքիկը">
+  <meta property="og:description" content="Cute personal websites and invitations · 15,000 – 25,000 ֏ · ready in 1–2 days">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Noto+Sans+Armenian:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Logo mark, reused across the page -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="mark" viewBox="0 0 48 40">
+      <rect x="2" y="2" width="44" height="36" rx="8" fill="#FF8A6B" stroke="#2B2A5C" stroke-width="3.5"/>
+      <line x1="2" y1="11.5" x2="46" y2="11.5" stroke="#2B2A5C" stroke-width="3.5"/>
+      <circle cx="8.5" cy="6.8" r="1.7" fill="#2B2A5C"/>
+      <circle cx="13.5" cy="6.8" r="1.7" fill="#2B2A5C"/>
+      <circle cx="18.5" cy="6.8" r="1.7" fill="#FFFBF4"/>
+      <path d="M24 33c-5.2-3.7-8.3-6.5-8.3-9.8a4.4 4.4 0 0 1 8.3-2 4.4 4.4 0 0 1 8.3 2c0 3.3-3.1 6.1-8.3 9.8z" fill="#FFFBF4" stroke="#2B2A5C" stroke-width="2.6" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <!-- 1. Header -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a href="#top" class="logo" aria-label="YourKayqik">
+        <svg class="logo__mark"><use href="#mark"/></svg>
+        <span class="logo__word"><span class="logo__your">your</span><span class="logo__kayqik">kayqik</span></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#examples" data-i18n="nav.examples">Օրինակներ</a>
+        <a href="#for" data-i18n="nav.for">Ում համար</a>
+        <a href="#how" data-i18n="nav.how">Ինչպես է աշխատում</a>
+        <a href="#price" data-i18n="nav.price">Գին</a>
+      </nav>
+      <div class="header__actions">
+        <button class="lang" id="lang" type="button" aria-label="Switch language">EN</button>
+        <a href="#contact" class="btn btn--small" data-i18n="nav.order">Պատվիրել</a>
+        <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- 2. Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="wrap hero__inner">
+        <div class="hero__copy">
+          <p class="eyebrow"><svg class="eyebrow__mark"><use href="#mark"/></svg> քո կայքիկը · քո պատմությունը</p>
+          <h1 class="hero__title">
+            <span class="line" data-i18n="hero.line1">Քո սեփական կայքիկը</span>
+            <span class="line line--rot">
+              <span data-i18n="hero.pre"></span>
+              <span class="rot" aria-live="polite"><span class="rot__word" id="rotWord">CV-ի</span></span>
+              <span data-i18n="hero.post">համար</span>
+            </span>
+          </h1>
+          <p class="lead" data-i18n="hero.text">Պատրաստում ենք օնլայն CV-ներ, պորտֆոլիոներ, էջեր բժիշկների և մասնագետների համար, ինչպես նաև սիրուն հրավիրատոմսեր հարսանիքների, ծննդյան տոների և ցանկացած հատուկ օրվա համար՝ մեկ հղումով, որը կարող ես ուղարկել բոլորին։</p>
+          <div class="hero__buttons">
+            <a href="#contact" class="btn btn--big"><span data-i18n="hero.order">Պատվիրել իմ կայքը</span> <span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a href="#examples" class="btn btn--ghost btn--big" data-i18n="hero.see">Տեսնել օրինակները</a>
+          </div>
+          <dl class="hero__facts">
+            <div><dt>15 000 – 25 000 ֏</dt><dd data-i18n="hero.fact.price">մեկ կայքի գինը</dd></div>
+            <div><dt data-i18n="hero.fact.days">1–2 օր</dt><dd data-i18n="hero.fact.daysText">մինչև պատրաստ լինելը</dd></div>
+            <div><dt>8</dt><dd data-i18n="hero.fact.types">օրինակ՝ բացելու համար</dd></div>
+          </dl>
+        </div>
+
+        <div class="fan" id="fan" aria-hidden="true">
+          <a class="frame frame--left" data-example="doctor" tabindex="-1">
+            <span class="frame__bar"><i></i><i></i><i></i><b>dr-ani.yourkayqik</b></span>
+            <img src="assets/examples/doctor.jpg" alt="" width="640" height="400">
+          </a>
+          <a class="frame frame--right" data-example="birthday" tabindex="-1">
+            <span class="frame__bar"><i></i><i></i><i></i><b>lilit-5.yourkayqik</b></span>
+            <img src="assets/examples/birthday.jpg" alt="" width="640" height="400">
+          </a>
+          <a class="frame frame--center" data-example="wedding" tabindex="-1">
+            <span class="frame__bar"><i></i><i></i><i></i><b>davit-mariam.yourkayqik</b></span>
+            <img src="assets/examples/wedding.jpg" alt="" width="640" height="400">
+          </a>
+          <span class="sticker sticker--heart">♥</span>
+          <span class="sticker sticker--time" data-i18n="hero.sticker">պատրաստ է 1–2 օրում</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Moving strip of all examples -->
+    <div class="strip" aria-hidden="true">
+      <div class="strip__track" id="stripTrack">
+        <a class="strip__item" data-example="portfolio" tabindex="-1"><img src="assets/examples/portfolio.jpg" alt="" width="640" height="400" loading="lazy"></a>
+        <a class="strip__item" data-example="fitness" tabindex="-1"><img src="assets/examples/fitness.jpg" alt="" width="640" height="400" loading="lazy"></a>
+        <a class="strip__item" data-example="student" tabindex="-1"><img src="assets/examples/student.jpg" alt="" width="640" height="400" loading="lazy"></a>
+        <a class="strip__item" data-example="party" tabindex="-1"><img src="assets/examples/party.jpg" alt="" width="640" height="400" loading="lazy"></a>
+        <a class="strip__item" data-example="developer" tabindex="-1"><img src="assets/examples/developer.jpg" alt="" width="640" height="400" loading="lazy"></a>
+        <a class="strip__item" data-example="doctor" tabindex="-1"><img src="assets/examples/doctor.jpg" alt="" width="640" height="400" loading="lazy"></a>
+        <a class="strip__item" data-example="wedding" tabindex="-1"><img src="assets/examples/wedding.jpg" alt="" width="640" height="400" loading="lazy"></a>
+        <a class="strip__item" data-example="birthday" tabindex="-1"><img src="assets/examples/birthday.jpg" alt="" width="640" height="400" loading="lazy"></a>
+      </div>
+    </div>
+
+    <!-- 3. Examples -->
+    <section class="section" id="examples">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="kicker" data-i18n="ex.kicker">Օրինակներ</p>
+          <h2 data-i18n="ex.title">Մեր աշխատանքների օրինակներ</h2>
+          <p data-i18n="ex.text">Յուրաքանչյուր կայք ստեղծվում է հենց իր մարդու կամ միջոցառման համար։ Բացիր օրինակը և տես, թե ինչ կստանաս։</p>
+        </div>
+
+        <div class="bento">
+          <a class="card card--wide" data-example="wedding">
+            <span class="card__shot"><img src="assets/examples/wedding.jpg" alt="" width="640" height="400" loading="lazy"></span>
+            <span class="card__body"><span class="card__tag" data-i18n="ex.wedding.what">Հարսանեկան հրավիրատոմս</span><strong data-i18n="ex.wedding.name">Դավիթ և Մարիամ</strong><span class="card__open" data-i18n="ex.open">Բացել →</span></span>
+          </a>
+          <a class="card card--wide" data-example="doctor">
+            <span class="card__shot"><img src="assets/examples/doctor.jpg" alt="" width="640" height="400" loading="lazy"></span>
+            <span class="card__body"><span class="card__tag" data-i18n="ex.doctor.what">Մանկաբույժ</span><strong data-i18n="ex.doctor.name">Բժ. Անի Հակոբյան</strong><span class="card__open" data-i18n="ex.open">Բացել →</span></span>
+          </a>
+          <a class="card" data-example="birthday">
+            <span class="card__shot"><img src="assets/examples/birthday.jpg" alt="" width="640" height="400" loading="lazy"></span>
+            <span class="card__body"><span class="card__tag" data-i18n="ex.birthday.what">Մանկական ծննդյան հրավեր</span><strong data-i18n="ex.birthday.name">Լիլիթը դառնում է 5 տարեկան</strong><span class="card__open" data-i18n="ex.open">Բացել →</span></span>
+          </a>
+          <a class="card" data-example="portfolio">
+            <span class="card__shot"><img src="assets/examples/portfolio.jpg" alt="" width="640" height="400" loading="lazy"></span>
+            <span class="card__body"><span class="card__tag" data-i18n="ex.portfolio.what">Դիզայների պորտֆոլիո</span><strong data-i18n="ex.portfolio.name">Աննա Պետրոսյան</strong><span class="card__open" data-i18n="ex.open">Բացել →</span></span>
+          </a>
+          <a class="card" data-example="developer">
+            <span class="card__shot"><img src="assets/examples/developer.jpg" alt="" width="640" height="400" loading="lazy"></span>
+            <span class="card__body"><span class="card__tag" data-i18n="ex.developer.what">Ծրագրավորողի CV</span><strong data-i18n="ex.developer.name">Արամ Սարգսյան</strong><span class="card__open" data-i18n="ex.open">Բացել →</span></span>
+          </a>
+          <a class="card" data-example="student">
+            <span class="card__shot"><img src="assets/examples/student.jpg" alt="" width="640" height="400" loading="lazy"></span>
+            <span class="card__body"><span class="card__tag" data-i18n="ex.student.what">Ուսանողի CV</span><strong data-i18n="ex.student.name">Սոնա Ավետիսյան</strong><span class="card__open" data-i18n="ex.open">Բացել →</span></span>
+          </a>
+          <a class="card card--wide" data-example="fitness">
+            <span class="card__shot"><img src="assets/examples/fitness.jpg" alt="" width="640" height="400" loading="lazy"></span>
+            <span class="card__body"><span class="card__tag" data-i18n="ex.fitness.what">Ֆիթնես մարզիչ</span><strong data-i18n="ex.fitness.name">Մանե Գրիգորյան</strong><span class="card__open" data-i18n="ex.open">Բացել →</span></span>
+          </a>
+          <a class="card card--wide" data-example="party">
+            <span class="card__shot"><img src="assets/examples/party.jpg" alt="" width="640" height="400" loading="lazy"></span>
+            <span class="card__body"><span class="card__tag" data-i18n="ex.party.what">Խնջույքի հրավեր</span><strong data-i18n="ex.party.name">Նարեկը դառնում է 18</strong><span class="card__open" data-i18n="ex.open">Բացել →</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Who it's for: each row leads to the matching example -->
+    <section class="section section--tint" id="for">
+      <div class="wrap">
+        <div class="section__head section__head--left">
+          <p class="kicker" data-i18n="for.kicker">Ում համար</p>
+          <h2 data-i18n="for.title">Ում համար է</h2>
+        </div>
+        <div class="who">
+          <a class="who__row" data-example="student">
+            <span class="who__name" data-i18n="for.students">Ուսանողներ և շրջանավարտներ</span>
+            <span class="who__text" data-i18n="for.students.text">Օնլայն CV, որը տպավորում է առաջին իսկ հղումից։</span>
+            <span class="who__go" aria-hidden="true">↗</span>
+          </a>
+          <a class="who__row" data-example="developer">
+            <span class="who__name" data-i18n="for.jobs">Աշխատանք փնտրողներ</span>
+            <span class="who__text" data-i18n="for.jobs.text">Պրոֆեսիոնալ տեսք, PDF ներբեռնելու կոճակ և արագ պատրաստում։</span>
+            <span class="who__go" aria-hidden="true">↗</span>
+          </a>
+          <a class="who__row" data-example="portfolio">
+            <span class="who__name" data-i18n="for.creatives">Դիզայներներ և ստեղծագործողներ</span>
+            <span class="who__text" data-i18n="for.creatives.text">Պորտֆոլիո, որտեղ քո աշխատանքներն են գլխավորը։</span>
+            <span class="who__go" aria-hidden="true">↗</span>
+          </a>
+          <a class="who__row" data-example="doctor">
+            <span class="who__name" data-i18n="for.doctors">Բժիշկներ և մասնագետներ</span>
+            <span class="who__text" data-i18n="for.doctors.text">Ծառայություններ, աշխատանքային ժամեր, հասցե քարտեզով և զանգի կոճակ։</span>
+            <span class="who__go" aria-hidden="true">↗</span>
+          </a>
+          <a class="who__row" data-example="wedding">
+            <span class="who__name" data-i18n="for.events">Հարսանիքներ և միջոցառումներ</span>
+            <span class="who__text" data-i18n="for.events.text">Հրավիրատոմս քարտեզով, հետհաշվարկով և մասնակցության հաստատմամբ։</span>
+            <span class="who__go" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. How it works: a real timeline, from your message to a live link -->
+    <section class="section" id="how">
+      <div class="wrap">
+        <div class="section__head section__head--left">
+          <p class="kicker" data-i18n="how.kicker">1–2 օրում</p>
+          <h2 data-i18n="how.title">Ինչպես է աշխատում</h2>
+        </div>
+        <ol class="timeline">
+          <li>
+            <span class="timeline__day" data-i18n="how.1.day">Այսօր</span>
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <h3 data-i18n="how.1.title">Ուղարկիր տվյալներդ</h3>
+            <p data-i18n="how.1.text">CV, լուսանկարներ, աշխատանքներ կամ միջոցառման մանրամասներ։</p>
+          </li>
+          <li>
+            <span class="timeline__day" data-i18n="how.2.day">1-ին օր</span>
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <h3 data-i18n="how.2.title">Մենք պատրաստում ենք</h3>
+            <p data-i18n="how.2.text">Կձևավորենք և կպատրաստենք կայքը քո գույներով ու կուղարկենք նախադիտում։</p>
+          </li>
+          <li>
+            <span class="timeline__day" data-i18n="how.3.day">2-րդ օր</span>
+            <span class="timeline__dot timeline__dot--live" aria-hidden="true"></span>
+            <h3 data-i18n="how.3.title">Կայքդ պատրաստ է</h3>
+            <p data-i18n="how.3.text">Քո կայքը գործարկվում է իր սեփական հղումով, և այն պատրաստ է ուղարկելու համար։</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. Price -->
+    <section class="section section--tint" id="price">
+      <div class="wrap">
+        <div class="price">
+          <div class="price__main">
+            <p class="kicker kicker--light" data-i18n="price.kicker">Գին</p>
+            <h2 data-i18n="price.title">Պարզ և հասկանալի գներ</h2>
+            <p class="price__amount">15 000 <span class="price__dash">–</span> 25 000 <span class="price__cur">֏</span></p>
+            <p class="price__depends" data-i18n="price.depends">Գինը կախված է էջերի քանակից</p>
+            <p class="price__time">⏱ <span data-i18n="price.time">պատրաստ է 1–2 օրում</span></p>
+            <a href="#contact" class="btn btn--big"><span data-i18n="hero.order">Պատվիրել իմ կայքը</span> <span class="btn__arrow" aria-hidden="true">→</span></a>
+          </div>
+          <div class="price__details">
+            <h3 data-i18n="price.included">Ներառված է</h3>
+            <ul class="checks">
+              <li data-i18n="price.inc.1">Ձևավորում քո գույներով</li>
+              <li data-i18n="price.inc.2">Բոլոր տեքստերն ու լուսանկարները տեղադրված</li>
+              <li data-i18n="price.inc.3">Աշխատում է հեռախոսով և համակարգչով</li>
+              <li data-i18n="price.inc.4">Փոփոխություններ մինչև գործարկումը</li>
+              <li data-i18n="price.inc.5">Անվճար հղում՝ կիսվելու համար</li>
+            </ul>
+            <p class="price__not" data-i18n="price.not">Ներառված չէ՝ անձնական դոմեն (օրինակ՝ yourname.am)</p>
+          </div>
+        </div>
+
+        <dl class="types">
+          <div><dt data-i18n="type.cv">CV կայք</dt><dd data-i18n="type.cv.text">Լուսանկար, աշխատանքային փորձ, հմտություններ, կրթություն, կոնտակտներ, PDF ներբեռնելու կոճակ</dd></div>
+          <div><dt data-i18n="type.portfolio">Պորտֆոլիո</dt><dd data-i18n="type.portfolio.text">CV + աշխատանքների և նախագծերի պատկերասրահ, «Իմ մասին», սոցցանցերի հղումներ</dd></div>
+          <div><dt data-i18n="type.doctor">Բժշկի կամ մասնագետի էջ</dt><dd data-i18n="type.doctor.text">Ծառայություններ, փորձ, աշխատանքային ժամեր, հասցե քարտեզով, զանգի և WhatsApp կոճակներ</dd></div>
+          <div><dt data-i18n="type.wedding">Հարսանեկան հրավիրատոմս</dt><dd data-i18n="type.wedding.text">Անուններ, ամսաթիվ, պսակադրության և հանդիսության վայրեր՝ քարտեզի հղումներով, լուսանկարներ, հետհաշվարկ, մասնակցության հաստատում</dd></div>
+          <div><dt data-i18n="type.event">Ծննդյան կամ այլ միջոցառման հրավեր</dt><dd data-i18n="type.event.text">Ամսաթիվ, վայր քարտեզով, ծրագիր, դրես-կոդ, մասնակցության հաստատում</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 7. Contact -->
+    <section class="contact" id="contact">
+      <div class="wrap contact__inner">
+        <svg class="contact__mark" aria-hidden="true"><use href="#mark"/></svg>
+        <h2 data-i18n="contact.title">Արի ստեղծենք քո կայքիկը</h2>
+        <p data-i18n="contact.text">Գրիր մեզ քո անունը և թե ինչ է քեզ պետք։ Արագ կպատասխանենք։</p>
+        <div class="contact__buttons">
+          <a class="btn btn--big btn--whatsapp" id="wa" href="https://wa.me/37477868622" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3z"/></svg>
+            <span data-i18n="contact.wa">Գրել WhatsApp-ով</span>
+          </a>
+          <a class="btn btn--big btn--light" href="https://instagram.com/yourkayqik" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.2 5.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM21.9 7.9c-.1-1.6-.4-3-1.6-4.2S17.7 2.2 16.1 2.1C14.5 2 9.5 2 7.9 2.1 6.3 2.2 4.9 2.5 3.7 3.7S2.2 6.3 2.1 7.9C2 9.5 2 14.5 2.1 16.1c.1 1.6.4 3 1.6 4.2s2.6 1.5 4.2 1.6c1.6.1 6.6.1 8.2 0 1.6-.1 3-.4 4.2-1.6s1.5-2.6 1.6-4.2c.1-1.6.1-6.6 0-8.2zM19.8 18a3.3 3.3 0 0 1-1.9 1.9c-1.3.5-4.4.4-5.9.4s-4.6.1-5.9-.4A3.3 3.3 0 0 1 4.2 18c-.5-1.3-.4-4.4-.4-5.9s-.1-4.6.4-5.9A3.3 3.3 0 0 1 6.1 4.3c1.3-.5 4.4-.4 5.9-.4s4.6-.1 5.9.4a3.3 3.3 0 0 1 1.9 1.9c.5 1.3.4 4.4.4 5.9s.1 4.6-.5 5.9z"/></svg>
+            <span data-i18n="contact.ig">Գրել Instagram-ում</span>
+          </a>
+        </div>
+        <p class="contact__details">
+          <span class="contact__phone" id="phone">077 868 622</span>
+          <button class="copy" id="copyPhone" type="button" data-i18n="contact.copy">Պատճենել</button>
+          <span aria-hidden="true">·</span>
+          <a href="https://instagram.com/yourkayqik" target="_blank" rel="noopener">@yourkayqik</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. Footer -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <a href="#top" class="logo logo--light" aria-label="YourKayqik">
+        <svg class="logo__mark"><use href="#mark"/></svg>
+        <span class="logo__word"><span class="logo__your">your</span><span class="logo__kayqik">kayqik</span></span>
+      </a>
+      <p>© 2026 YourKayqik · քո կայքիկը · քո պատմությունը · <span data-i18n="footer.city">Երևան</span></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

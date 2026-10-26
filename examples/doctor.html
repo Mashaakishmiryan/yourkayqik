@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dr. Ani Hakobyan · Pediatrician</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --teal: #0F8A80; --teal-dark: #0B5F59; --mint: #E6F5F3; --ink: #12302E; --soft: #5B7472; --bg: #FAFDFC; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: "Plus Jakarta Sans", system-ui, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; }
+    a { color: inherit; }
+    h1, h2, h3 { margin: 0; line-height: 1.2; }
+    p { margin: 0; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 12px; font-weight: 700; text-decoration: none; border: 0; cursor: pointer; font: inherit; font-weight: 700; transition: transform .15s, background .15s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn--teal { background: var(--teal); color: #fff; }
+    .btn--teal:hover { background: var(--teal-dark); }
+    .btn--light { background: #fff; color: var(--teal-dark); border: 1.5px solid #CDE7E3; }
+    .btn--wa { background: #25D366; color: #fff; }
+
+    nav { position: sticky; top: 0; z-index: 10; background: rgba(250,253,252,.92); backdrop-filter: blur(8px); border-bottom: 1px solid #E3EFED; }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-weight: 800; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand i { width: 30px; height: 30px; border-radius: 9px; background: var(--teal); display: grid; place-items: center; color: #fff; font-style: normal; }
+    .links { display: flex; gap: 24px; font-weight: 600; color: var(--soft); }
+    .links a { text-decoration: none; }
+    .links a:hover { color: var(--teal); }
+
+    .hero { padding: 64px 0 80px; background: linear-gradient(180deg, var(--mint), var(--bg)); }
+    .hero .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+    .status { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: #fff; font-size: .85rem; font-weight: 700; box-shadow: 0 2px 10px rgba(15,138,128,.08); }
+    .status b { width: 9px; height: 9px; border-radius: 50%; background: #9AA9A7; }
+    .status.is-open b { background: #22C55E; box-shadow: 0 0 0 4px rgba(34,197,94,.2); }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 18px 0 8px; letter-spacing: -.02em; }
+    .hero .role { font-size: 1.2rem; color: var(--teal); font-weight: 700; }
+    .hero p.lead { margin-top: 16px; color: var(--soft); font-size: 1.08rem; max-width: 30em; }
+    .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .facts { display: flex; gap: 28px; margin-top: 36px; }
+    .facts strong { display: block; font-size: 1.6rem; color: var(--teal-dark); }
+    .facts span { font-size: .85rem; color: var(--soft); }
+    .portrait { aspect-ratio: 4/5; border-radius: 28px; background: radial-gradient(circle at 50% 38%, #fff 0 22%, transparent 23%), radial-gradient(ellipse at 50% 95%, #fff 0 42%, transparent 43%), linear-gradient(160deg, #3BB0A6, #0F8A80); position: relative; box-shadow: 0 30px 60px rgba(15,138,128,.25); }
+    .portrait::after { content: attr(data-emoji); position: absolute; right: -14px; bottom: 28px; font-size: 2.2rem; background: #fff; border-radius: 18px; padding: 8px 12px; box-shadow: 0 10px 30px rgba(0,0,0,.1); }
+
+    section { padding: 80px 0; }
+    .title { font-size: clamp(1.7rem, 3.5vw, 2.3rem); margin-bottom: 10px; }
+    .subtitle { color: var(--soft); margin-bottom: 36px; }
+
+    .services { display: grid; gap: 12px; }
+    .service { background: #fff; border: 1.5px solid #E1EEEC; border-radius: 16px; overflow: hidden; }
+    .service button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 22px; background: none; border: 0; font: inherit; font-weight: 700; font-size: 1.05rem; color: var(--ink); cursor: pointer; text-align: left; }
+    .service button span.price { color: var(--teal); font-weight: 700; white-space: nowrap; display: flex; align-items: center; gap: 12px; }
+    .service button i { font-style: normal; width: 28px; height: 28px; border-radius: 50%; background: var(--mint); display: grid; place-items: center; transition: transform .25s; flex: none; }
+    .service.is-open button i { transform: rotate(45deg); }
+    .service .body { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .service .body p { padding: 0 22px 20px; color: var(--soft); }
+    .service.is-open .body { max-height: 200px; }
+
+    .grey { background: var(--mint); }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .panel { background: #fff; border-radius: 22px; padding: 30px; }
+    .hours { width: 100%; border-collapse: collapse; }
+    .hours td { padding: 12px 8px; border-bottom: 1px solid #EEF5F4; }
+    .hours td:last-child { text-align: right; font-weight: 600; }
+    .hours tr.today td { color: var(--teal-dark); font-weight: 800; background: var(--mint); }
+    .hours tr.today td:first-child { border-radius: 10px 0 0 10px; }
+    .hours tr.today td:last-child { border-radius: 0 10px 10px 0; }
+    .map { border: 0; width: 100%; height: 260px; border-radius: 16px; margin: 18px 0; }
+
+    .timeline { list-style: none; padding: 0; margin: 0; border-left: 2px solid #CDE7E3; }
+    .timeline li { position: relative; padding: 0 0 26px 24px; }
+    .timeline li::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--teal); }
+    .timeline small { color: var(--teal); font-weight: 700; }
+    .timeline p { color: var(--soft); }
+
+    form { display: grid; gap: 14px; }
+    label { font-weight: 600; font-size: .9rem; display: grid; gap: 6px; }
+    input, select, textarea { font: inherit; padding: 12px 14px; border-radius: 12px; border: 1.5px solid #D7E8E5; background: #fff; color: var(--ink); }
+    input:focus, select:focus, textarea:focus { outline: 2px solid var(--teal); border-color: transparent; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    footer { padding: 32px 0 90px; text-align: center; color: var(--soft); font-size: .9rem; }
+
+    @media (max-width: 820px) {
+      .links { display: none; }
+      .hero .wrap, .two { grid-template-columns: 1fr; }
+      .portrait { max-width: 320px; width: 100%; margin: 0 auto; }
+      .row { grid-template-columns: 1fr; }
+      section { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a href="#" class="brand"><i>+</i> <span data-text="name"></span></a>
+      <div class="links"><a href="#services">Services</a><a href="#hours">Hours</a><a href="#about">About</a><a href="#book">Book</a></div>
+      <a class="btn btn--teal" data-href="links.tel" style="padding:9px 16px">📞 Call</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <span class="status" id="status"><b></b><span>Checking hours…</span></span>
+        <h1 data-text="name"></h1>
+        <p class="role" data-text="role"></p>
+        <p class="lead" data-text="intro"></p>
+        <div class="actions">
+          <a class="btn btn--teal" href="#book">Book a visit</a>
+          <a class="btn btn--light" data-href="links.tel">📞 <span data-text="phone"></span></a>
+        </div>
+        <div class="facts" id="facts"></div>
+      </div>
+      <div class="portrait" id="portrait" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <section id="services">
+    <div class="wrap">
+      <h2 class="title">Services</h2>
+      <p class="subtitle">Tap a service to see what's included.</p>
+      <div class="services" id="services-list"></div>
+    </div>
+  </section>
+
+  <section id="hours" class="grey">
+    <div class="wrap two">
+      <div class="panel">
+        <h2 class="title">Working hours</h2>
+        <table class="hours" id="hoursTable"></table>
+      </div>
+      <div class="panel">
+        <h2 class="title">Clinic address</h2>
+        <p><span data-text="clinic.name"></span><br><span data-text="clinic.address"></span></p>
+        <iframe class="map" id="map" loading="lazy" title="Map"></iframe>
+        <a class="btn btn--teal" data-href="links.map" target="_blank" rel="noopener">Open in Maps →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap two">
+      <div>
+        <h2 class="title">Experience</h2>
+        <p class="subtitle" data-text="experienceIntro"></p>
+      </div>
+      <ul class="timeline" id="experience"></ul>
+    </div>
+  </section>
+
+  <section id="book" class="grey">
+    <div class="wrap two">
+      <div>
+        <h2 class="title">Book a visit</h2>
+        <p class="subtitle">Fill in the form — it opens WhatsApp with your message ready to send. We'll confirm the time.</p>
+        <a class="btn btn--light" data-href="links.tel">Or call <span data-text="phone"></span></a>
+      </div>
+      <form class="panel" id="bookForm">
+        <div class="row">
+          <label>Parent's name<input name="parent" required placeholder="Your name"></label>
+          <label>Child's age<input name="age" required placeholder="e.g. 3 years"></label>
+        </div>
+        <label>Service<select name="service" id="serviceSelect"></select></label>
+        <label>Preferred day<input type="date" name="day" required></label>
+        <label>Comment<textarea name="note" rows="3" placeholder="Anything the doctor should know"></textarea></label>
+        <button class="btn btn--wa" type="submit">Send on WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <footer data-text="footer"></footer>
+
+  <script src="render.js"></script>
+  <script src="data/doctor.js"></script>
+  <script>
+    // Fill the page from DATA
+    DATA.links = { tel: telLink(DATA.phone), map: mapLink(DATA.clinic.mapQuery) };
+    document.title = `${DATA.name} · ${DATA.role.split(" · ")[0]}`;
+    bindData(DATA);
+    const portrait = document.getElementById("portrait");
+    portrait.dataset.emoji = DATA.emoji;
+    if (DATA.photo) portrait.style.background = `url("${DATA.photo}") center/cover`;
+    document.getElementById("map").src = `https://maps.google.com/maps?q=${encodeURIComponent(DATA.clinic.mapQuery)}&z=13&output=embed`;
+    fill("#facts", DATA.facts, (f) =>
+      `<div><strong data-count="${f.value}" data-decimals="${f.decimals || 0}" data-plus="${f.plus ? 1 : 0}">0</strong><span>${esc(f.label)}</span></div>`);
+    fill("#services-list", DATA.services, (s) =>
+      `<div class="service"><button type="button"><span>${esc(s.name)}</span><span class="price">${esc(s.price)} <i>+</i></span></button><div class="body"><p>${esc(s.details)}</p></div></div>`);
+    fill("#experience", DATA.experience, (x) =>
+      `<li><small>${esc(x.years)}</small><h3>${esc(x.place)}</h3><p>${esc(x.role)}</p></li>`);
+    fill("#serviceSelect", DATA.services, (s) => `<option>${esc(s.name)}</option>`);
+
+    // Working hours and "open now"
+    const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const now = new Date();
+    const today = now.getDay();
+    fill("#hoursTable", [1, 2, 3, 4, 5, 6, 0], (d) => {
+      const h = DATA.hours[d];
+      return `<tr class="${d === today ? "today" : ""}"><td>${DAYS[d]}${d === today ? " · today" : ""}</td><td>${h ? h.join(" – ") : "Closed"}</td></tr>`;
+    });
+    const toMin = (t) => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+    const mins = now.getHours() * 60 + now.getMinutes();
+    const todayHours = DATA.hours[today];
+    const status = document.getElementById("status");
+    if (todayHours && mins >= toMin(todayHours[0]) && mins < toMin(todayHours[1])) {
+      status.classList.add("is-open");
+      status.lastElementChild.textContent = `Open now · until ${todayHours[1]}`;
+    } else {
+      status.lastElementChild.textContent = "Closed now · leave a request below";
+    }
+
+    // Service accordion
+    document.querySelectorAll(".service button").forEach((b) =>
+      b.addEventListener("click", () => b.parentElement.classList.toggle("is-open")));
+
+    // Count-up numbers
+    document.querySelectorAll("[data-count]").forEach((el) => {
+      const end = parseFloat(el.dataset.count), dec = +el.dataset.decimals, plus = el.dataset.plus === "1", start = performance.now();
+      const tick = (t) => {
+        const p = Math.min((t - start) / 1400, 1), v = end * (1 - Math.pow(1 - p, 3));
+        el.textContent = (dec ? v.toFixed(dec) : Math.round(v).toLocaleString("en")) + (p === 1 && plus ? "+" : "");
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+
+    // Booking form → WhatsApp
+    document.querySelector('[name="day"]').min = now.toISOString().slice(0, 10);
+    document.getElementById("bookForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const f = new FormData(e.target);
+      const text = `Hello ${DATA.shortName}! I'd like to book: ${f.get("service")}\nParent: ${f.get("parent")}\nChild's age: ${f.get("age")}\nPreferred day: ${f.get("day")}${f.get("note") ? "\nNote: " + f.get("note") : ""}`;
+      window.open(waLink(DATA.whatsapp, text), "_blank");
+    });
+  </script>
+  <script src="badge.js"></script>
+</body>
+</html>

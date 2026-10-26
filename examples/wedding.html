@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Davit & Mariam · 12 June 2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --cream: #F7F3EA; --paper: #FFFDF8; --sage: #9BAE8E; --sage-dark: #5E7154; --ink: #3D4A39; --soft: #7D8877; --line: #E2DCCD; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: "Jost", sans-serif; font-weight: 300; line-height: 1.7; }
+    body.locked { overflow: hidden; }
+    h1, h2, h3, .serif { font-family: "Cormorant Garamond", serif; font-weight: 400; margin: 0; line-height: 1.1; }
+    p { margin: 0; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 0 22px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .32em; font-size: .72rem; font-weight: 400; color: var(--soft); }
+    .btn { display: inline-block; font: inherit; font-weight: 400; letter-spacing: .15em; text-transform: uppercase; font-size: .78rem; padding: 14px 30px; border-radius: 999px; border: 1px solid var(--sage-dark); background: var(--sage-dark); color: #fff; text-decoration: none; cursor: pointer; transition: background .2s, color .2s; }
+    .btn:hover { background: var(--ink); }
+    .btn--line { background: transparent; color: var(--sage-dark); }
+    .btn--line:hover { background: var(--sage-dark); color: #fff; }
+
+    /* Envelope intro */
+    .intro { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: var(--cream); transition: opacity .9s ease .6s, visibility 0s 1.5s; }
+    .intro.is-open { opacity: 0; visibility: hidden; }
+    .envelope { position: relative; width: min(340px, 82vw); aspect-ratio: 3/2; background: #EAE3D2; border-radius: 6px; box-shadow: 0 30px 60px rgba(61,74,57,.18); cursor: pointer; }
+    .envelope::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top right, #E3DBC7 50%, transparent 50%) left / 50% 100% no-repeat, linear-gradient(to top left, #E3DBC7 50%, transparent 50%) right / 50% 100% no-repeat; border-radius: 6px; z-index: 2; }
+    .flap { position: absolute; left: 0; right: 0; top: 0; height: 60%; background: #DCD3BE; clip-path: polygon(0 0, 100% 0, 50% 100%); transform-origin: top; transition: transform .7s ease; z-index: 3; }
+    .seal { position: absolute; left: 50%; top: 52%; transform: translate(-50%, -50%); z-index: 4; width: 62px; height: 62px; border-radius: 50%; background: var(--sage-dark); color: #fff; display: grid; place-items: center; font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,.2); transition: opacity .3s; }
+    .letter { position: absolute; left: 6%; right: 6%; top: 8%; bottom: 8%; background: var(--paper); z-index: 1; display: grid; place-items: center; text-align: center; transition: transform .7s ease .35s; }
+    .intro.is-open .flap { transform: rotateX(180deg); }
+    .intro.is-open .seal { opacity: 0; }
+    .intro.is-open .letter { transform: translateY(-55%); }
+    .intro p { margin-top: 26px; text-align: center; }
+
+    /* Hero */
+    .hero { min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 80px 22px; position: relative; overflow: hidden; }
+    .hero h1 { font-size: clamp(3.4rem, 12vw, 7rem); font-style: italic; margin: 22px 0 10px; }
+    .hero h1 span { color: var(--sage); }
+    .hero .date { letter-spacing: .4em; font-size: 1rem; }
+    .leaf { position: absolute; width: 180px; opacity: .55; }
+    .leaf--tl { top: -20px; left: -30px; transform: rotate(20deg); }
+    .leaf--br { bottom: -20px; right: -30px; transform: rotate(200deg); }
+
+    .count { display: flex; justify-content: center; gap: 14px; margin: 40px 0; }
+    .count div { min-width: 78px; padding: 14px 8px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
+    .count b { display: block; font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 2.3rem; line-height: 1; }
+    .count small { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--soft); }
+
+    section { padding: 100px 0; text-align: center; }
+    section h2 { font-size: clamp(2.4rem, 6vw, 3.4rem); font-style: italic; margin: 12px 0 22px; }
+    .story { max-width: 34em; margin: 0 auto; font-size: 1.1rem; }
+    .divider { width: 60px; height: 1px; background: var(--sage); margin: 40px auto 0; }
+
+    .events { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 44px; text-align: center; }
+    .event { background: var(--paper); border: 1px solid var(--line); border-radius: 200px 200px 20px 20px; padding: 60px 28px 36px; }
+    .event .icon { font-size: 1.8rem; }
+    .event h3 { font-size: 2rem; margin: 10px 0 6px; }
+    .event .time { font-size: 1.5rem; font-family: "Cormorant Garamond", serif; color: var(--sage-dark); }
+    .event p { color: var(--soft); margin: 8px 0 22px; }
+    .event .btns { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
+    .photo { aspect-ratio: 3/4; border-radius: 14px; border: 0; cursor: zoom-in; position: relative; overflow: hidden; padding: 0; }
+    .photo:nth-child(2) { transform: translateY(30px); }
+    .photo span { position: absolute; left: 0; right: 0; bottom: 12px; color: #fff; font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.2rem; text-shadow: 0 1px 6px rgba(0,0,0,.3); }
+    .p1 { background: radial-gradient(circle at 35% 40%, #F4E3C8 0 18%, transparent 19%), radial-gradient(circle at 62% 42%, #E8D4B4 0 17%, transparent 18%), linear-gradient(170deg, #C7D3BB, #8EA180); }
+    .p2 { background: radial-gradient(circle at 50% 30%, #fff9 0 10%, transparent 11%), linear-gradient(200deg, #E9D8C4, #B9A48C 70%, #8E7C66); }
+    .p3 { background: radial-gradient(ellipse at 50% 110%, #9BAE8E 0 40%, transparent 41%), linear-gradient(180deg, #F5D9C6, #EAC1A8); }
+    .lightbox { position: fixed; inset: 0; z-index: 90; background: rgba(40,46,37,.85); display: none; place-items: center; padding: 24px; }
+    .lightbox.is-open { display: grid; }
+    .lightbox div { width: min(440px, 90vw); aspect-ratio: 3/4; border-radius: 16px; }
+    .lightbox button { position: absolute; top: 18px; right: 22px; background: none; border: 0; color: #fff; font-size: 2rem; cursor: pointer; }
+
+    .rsvp { background: var(--paper); }
+    form { max-width: 480px; margin: 36px auto 0; display: grid; gap: 16px; text-align: left; }
+    label { font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; color: var(--soft); display: grid; gap: 6px; }
+    input, select, textarea { font: inherit; font-size: 1rem; letter-spacing: 0; text-transform: none; padding: 12px 4px; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--ink); }
+    input:focus, select:focus, textarea:focus { outline: 0; border-bottom-color: var(--sage-dark); }
+    .choice { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .choice input { display: none; }
+    .choice span { display: block; text-align: center; padding: 14px; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; text-transform: none; letter-spacing: 0; font-size: 1rem; color: var(--ink); transition: all .2s; }
+    .choice input:checked + span { background: var(--sage-dark); color: #fff; border-color: var(--sage-dark); }
+    form .btn { justify-self: center; margin-top: 10px; }
+    .thanks { display: none; margin-top: 36px; }
+    .thanks h3 { font-size: 2.2rem; font-style: italic; }
+    .rsvp.is-done form { display: none; }
+    .rsvp.is-done .thanks { display: block; }
+    footer { text-align: center; padding: 60px 22px 100px; }
+    footer .serif { font-size: 2rem; font-style: italic; }
+
+    .fade { opacity: 0; transform: translateY(20px); transition: opacity .9s, transform .9s; }
+    .fade.in { opacity: 1; transform: none; }
+
+    @media (max-width: 680px) {
+      .events { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .photo:nth-child(2) { transform: none; }
+      .count { gap: 8px; }
+      .count div { min-width: 0; flex: 1; }
+      .count b { font-size: 1.8rem; }
+      section { padding: 72px 0; }
+    }
+  </style>
+</head>
+<body class="locked">
+  <div class="intro" id="intro">
+    <div>
+      <div class="envelope" id="envelope" role="button" aria-label="Open the invitation" tabindex="0">
+        <div class="flap"></div>
+        <div class="seal" id="seal"></div>
+        <div class="letter"><span class="serif" style="font-size:1.6rem;font-style:italic">You're invited</span></div>
+      </div>
+      <p class="eyebrow">Tap the envelope to open</p>
+    </div>
+  </div>
+
+  <header class="hero">
+    <svg class="leaf leaf--tl" viewBox="0 0 100 100" aria-hidden="true"><path d="M10 90C30 40 60 15 95 8 80 45 55 75 10 90z" fill="#9BAE8E"/><path d="M10 90 70 30" stroke="#5E7154" stroke-width="1.2"/></svg>
+    <svg class="leaf leaf--br" viewBox="0 0 100 100" aria-hidden="true"><path d="M10 90C30 40 60 15 95 8 80 45 55 75 10 90z" fill="#9BAE8E"/><path d="M10 90 70 30" stroke="#5E7154" stroke-width="1.2"/></svg>
+    <div>
+      <p class="eyebrow" data-text="invitedBy"></p>
+      <h1><span data-text="partner1" style="color:inherit"></span> <span>&amp;</span> <span data-text="partner2" style="color:inherit"></span></h1>
+      <p class="date" data-text="dateLabel"></p>
+      <div class="count" id="count">
+        <div><b id="cd-d">0</b><small>days</small></div>
+        <div><b id="cd-h">0</b><small>hours</small></div>
+        <div><b id="cd-m">0</b><small>min</small></div>
+        <div><b id="cd-s">0</b><small>sec</small></div>
+      </div>
+      <a class="btn" href="#rsvp">Will you come?</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap fade">
+      <p class="eyebrow">Our story</p>
+      <h2 data-text="story.title"></h2>
+      <p class="story" data-text="story.text"></p>
+      <div class="divider"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap fade">
+      <p class="eyebrow">The day</p>
+      <h2 data-text="dayTitle"></h2>
+      <div class="events" id="events"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap fade">
+      <p class="eyebrow">Moments</p>
+      <h2>Us, so far</h2>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox"><button aria-label="Close">×</button><div></div></div>
+
+  <section class="rsvp" id="rsvp">
+    <div class="wrap fade">
+      <p class="eyebrow" data-text="rsvp.deadline"></p>
+      <h2>RSVP</h2>
+      <form id="rsvpForm">
+        <label>Your name<input name="name" required placeholder="Name and surname"></label>
+        <div class="choice">
+          <label><input type="radio" name="coming" value="yes" checked><span>Joyfully accept</span></label>
+          <label><input type="radio" name="coming" value="no"><span>Regretfully decline</span></label>
+        </div>
+        <label id="guestsField">Number of guests<select name="guests" id="guests"></select></label>
+        <label>A wish for the couple<textarea name="wish" rows="2" placeholder="Optional"></textarea></label>
+        <button class="btn" type="submit">Send reply via WhatsApp</button>
+      </form>
+      <div class="thanks">
+        <h3 id="thanksTitle">Thank you!</h3>
+        <p id="thanksText"></p>
+        <p style="margin-top:18px"><a href="#" id="changeReply" style="color:var(--sage-dark)">Change my reply</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="serif" data-text="signature"></p>
+    <p class="eyebrow" style="margin-top:10px" data-text="hashtag"></p>
+  </footer>
+
+  <script src="render.js"></script>
+  <script src="data/wedding.js"></script>
+  <script>
+    // Fill the page from DATA
+    const couple = `${DATA.partner1} & ${DATA.partner2}`;
+    const at = (time) => new Date(`${DATA.date}T${time}:00${DATA.timeZone}`);
+    const WEDDING = at(DATA.startTime);
+    document.title = `${couple} · ${DATA.dateLabel}`;
+    bindData(DATA);
+    if (DATA.heroImage) document.querySelector(".hero").style.background =
+      `linear-gradient(rgba(247,243,234,.84), rgba(247,243,234,.94)), url("${DATA.heroImage}") center/cover`;
+    document.getElementById("seal").textContent = DATA.partner1[0] + "&" + DATA.partner2[0];
+    fill("#events", DATA.events, (ev, i) => `
+      <div class="event">
+        <div class="icon">${esc(ev.icon)}</div>
+        <h3>${esc(ev.name)}</h3>
+        <p class="time">${esc(ev.time)}</p>
+        <p>${esc(ev.place)}<br>${esc(ev.city)}</p>
+        <div class="btns">
+          <a class="btn btn--line" href="${esc(mapLink(ev.mapQuery))}" target="_blank" rel="noopener">Open map</a>
+          <button class="btn btn--line" data-cal="${i}">Add to calendar</button>
+        </div>
+      </div>`);
+    const photoStyle = (p, i) => p.image ? `background:url('${esc(p.image)}') center/cover` : "";
+    fill("#gallery", DATA.photos, (p, i) =>
+      `<button class="photo p${(i % 3) + 1}" data-i="${i}" style="${photoStyle(p, i)}"><span>${esc(p.caption)}</span></button>`);
+    fill("#guests", Array.from({ length: DATA.rsvp.maxGuests }, (_, i) => i + 1), (n) => `<option>${n}</option>`);
+
+    // Envelope
+    const intro = document.getElementById("intro");
+    const openInvite = () => { intro.classList.add("is-open"); document.body.classList.remove("locked"); };
+    document.getElementById("envelope").addEventListener("click", openInvite);
+    document.getElementById("envelope").addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") openInvite(); });
+
+    // Countdown
+    const pad = (n) => String(n).padStart(2, "0");
+    function tick() {
+      let s = Math.max(0, Math.floor((WEDDING - new Date()) / 1000));
+      const d = Math.floor(s / 86400); s %= 86400;
+      document.getElementById("cd-d").textContent = d;
+      document.getElementById("cd-h").textContent = pad(Math.floor(s / 3600));
+      document.getElementById("cd-m").textContent = pad(Math.floor((s % 3600) / 60));
+      document.getElementById("cd-s").textContent = pad(s % 60);
+    }
+    tick(); setInterval(tick, 1000);
+
+    // Add to calendar (.ics file)
+    const icsTime = (d) => d.toISOString().replace(/[-:]/g, "").slice(0, 15) + "Z";
+    document.querySelectorAll("[data-cal]").forEach((b) => b.addEventListener("click", () => {
+      const ev = DATA.events[b.dataset.cal];
+      const start = at(ev.time), end = new Date(start.getTime() + ev.hours * 3600000);
+      const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//yourkayqik//EN", "BEGIN:VEVENT",
+        `UID:${b.dataset.cal}-${DATA.date}@yourkayqik`, `DTSTAMP:${icsTime(new Date())}`, `DTSTART:${icsTime(start)}`, `DTEND:${icsTime(end)}`,
+        `SUMMARY:${couple} · ${ev.name}`, `LOCATION:${ev.place}, ${ev.city}`, "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }));
+      a.download = ev.name.toLowerCase() + ".ics";
+      a.click();
+    }));
+
+    // Gallery lightbox
+    const lb = document.getElementById("lightbox");
+    document.querySelectorAll(".photo").forEach((p) => p.addEventListener("click", () => {
+      const big = lb.querySelector("div");
+      big.className = p.classList[1];
+      big.style.cssText = p.style.cssText;
+      lb.classList.add("is-open");
+    }));
+    lb.addEventListener("click", () => lb.classList.remove("is-open"));
+
+    // RSVP → saved on this device and sent to the couple on WhatsApp
+    const STORAGE_KEY = "rsvp-" + DATA.date;
+    const rsvp = document.getElementById("rsvp");
+    const form = document.getElementById("rsvpForm");
+    const guestsField = document.getElementById("guestsField");
+    form.addEventListener("change", () => { guestsField.style.display = form.coming.value === "yes" ? "" : "none"; });
+    function showThanks(data) {
+      const yes = data.coming === "yes";
+      document.getElementById("thanksTitle").textContent = yes ? `See you there, ${data.name}!` : `We'll miss you, ${data.name}`;
+      document.getElementById("thanksText").textContent = yes
+        ? `We've saved ${data.guests} ${data.guests === "1" ? "seat" : "seats"} for you. Can't wait to celebrate together.`
+        : "Thank you for letting us know. You'll be in our hearts on the day.";
+      rsvp.classList.add("is-done");
+    }
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form));
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (err) {}
+      showThanks(data);
+      const text = data.coming === "yes"
+        ? `RSVP: ${data.name} — joyfully accepts 💚\nGuests: ${data.guests}${data.wish ? "\nWish: " + data.wish : ""}`
+        : `RSVP: ${data.name} — regretfully declines${data.wish ? "\nWish: " + data.wish : ""}`;
+      window.open(waLink(DATA.rsvp.whatsapp, text), "_blank");
+    });
+    document.getElementById("changeReply").addEventListener("click", (e) => { e.preventDefault(); rsvp.classList.remove("is-done"); });
+    try { const saved = JSON.parse(localStorage.getItem(STORAGE_KEY)); if (saved) showThanks(saved); } catch (err) {}
+
+    // Fade in on scroll
+    const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && e.target.classList.add("in")), { threshold: .15 });
+    document.querySelectorAll(".fade").forEach((el) => io.observe(el));
+  </script>
+  <script src="badge.js"></script>
+</body>
+</html>

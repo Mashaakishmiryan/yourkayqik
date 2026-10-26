@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Narek turns 18 · Neon Night</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --night: #0B0620; --deep: #150B36; --pink: #FF3CAC; --cyan: #3CF2FF; --violet: #9D5CFF; --yellow: #FFE45C; --text: #F4F0FF; --soft: #A79FC8; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: "Outfit", sans-serif; background: var(--night); color: var(--text); line-height: 1.55; overflow-x: hidden; }
+    h1, h2, h3 { margin: 0; line-height: 1.05; }
+    p { margin: 0; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+    .neon-pink { color: #fff; text-shadow: 0 0 6px var(--pink), 0 0 16px var(--pink), 0 0 36px var(--pink); }
+    .neon-cyan { color: #fff; text-shadow: 0 0 6px var(--cyan), 0 0 16px var(--cyan), 0 0 36px var(--cyan); }
+    .btn { display: inline-block; font: inherit; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: 14px 30px; border-radius: 999px; border: 2px solid var(--pink); color: #fff; background: transparent; text-decoration: none; cursor: pointer; box-shadow: 0 0 14px rgba(255,60,172,.5), inset 0 0 14px rgba(255,60,172,.35); transition: background .2s, transform .15s; }
+    .btn:hover { background: var(--pink); transform: translateY(-2px); }
+
+    .stars { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 20% 10%, #2B1460 0, transparent 40%), radial-gradient(circle at 85% 70%, #3A0F4D 0, transparent 40%), var(--night); }
+    .stars i { position: absolute; width: 2px; height: 2px; background: #fff; border-radius: 50%; animation: twinkle 3s infinite; }
+    @keyframes twinkle { 50% { opacity: .2; } }
+
+    .hero { min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 60px 20px; }
+    .sign { display: inline-block; border: 3px solid var(--cyan); border-radius: 28px; padding: 30px 40px 36px; box-shadow: 0 0 20px var(--cyan), inset 0 0 20px rgba(60,242,255,.4); }
+    .sign .pre { font-weight: 300; letter-spacing: .5em; text-transform: uppercase; font-size: .85rem; }
+    .eighteen { font-family: "Monoton", cursive; font-size: clamp(7rem, 30vw, 13rem); line-height: 1; margin: 6px 0; animation: flicker 5s infinite; }
+    @keyframes flicker { 0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; } 20%, 24%, 55% { opacity: .35; } }
+    .hero h1 { font-size: clamp(2rem, 7vw, 3.4rem); font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+    .hero .when { margin: 18px 0 30px; font-size: 1.15rem; color: var(--soft); letter-spacing: .1em; }
+
+    section { padding: 90px 0; text-align: center; }
+    .title { font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 36px; }
+
+    .count { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .count div { width: 120px; padding: 18px 0; border-radius: 18px; border: 1.5px solid rgba(157,92,255,.6); background: rgba(21,11,54,.6); box-shadow: 0 0 18px rgba(157,92,255,.3); }
+    .count b { display: block; font-size: 3rem; font-weight: 800; color: var(--cyan); text-shadow: 0 0 12px var(--cyan); line-height: 1.1; }
+    .count small { color: var(--soft); text-transform: uppercase; letter-spacing: .2em; font-size: .7rem; }
+
+    .details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .detail { padding: 26px 18px; border-radius: 20px; background: rgba(21,11,54,.7); border: 1px solid rgba(255,255,255,.08); }
+    .detail .ico { font-size: 2rem; }
+    .detail h3 { margin: 10px 0 4px; text-transform: uppercase; letter-spacing: .1em; font-size: 1rem; color: var(--pink); }
+    .detail a { color: var(--cyan); }
+
+    .timeline { position: relative; max-width: 560px; margin: 0 auto; text-align: left; }
+    .timeline::before { content: ""; position: absolute; left: 70px; top: 0; bottom: 0; width: 2px; background: linear-gradient(var(--pink), var(--cyan)); box-shadow: 0 0 10px var(--pink); }
+    .t-item { display: grid; grid-template-columns: 70px 1fr; gap: 28px; padding: 14px 0; position: relative; opacity: .45; transition: opacity .4s; }
+    .t-item.lit { opacity: 1; }
+    .t-item::after { content: ""; position: absolute; left: 64px; top: 22px; width: 14px; height: 14px; border-radius: 50%; background: var(--night); border: 2px solid var(--cyan); transition: all .4s; }
+    .t-item.lit::after { background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+    .t-item time { font-weight: 800; color: var(--yellow); font-size: 1.1rem; padding-top: 10px; }
+    .t-item h3 { font-size: 1.3rem; padding-top: 8px; }
+    .t-item p { color: var(--soft); }
+
+    .rsvp-btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 640px; margin: 0 auto; }
+    .answer { font: inherit; padding: 24px 12px; border-radius: 20px; border: 2px solid var(--c); background: transparent; color: #fff; cursor: pointer; transition: all .2s; box-shadow: 0 0 12px color-mix(in srgb, var(--c) 40%, transparent); }
+    .answer span { display: block; font-size: 2.4rem; margin-bottom: 6px; transition: transform .3s; }
+    .answer strong { font-size: 1.1rem; text-transform: uppercase; letter-spacing: .08em; }
+    .answer:hover span { transform: scale(1.2) rotate(-8deg); }
+    .answer.on { background: var(--c); color: var(--night); box-shadow: 0 0 30px var(--c); }
+    .name-row { max-width: 640px; margin: 0 auto 20px; }
+    .name-row input, .song input { width: 100%; font: inherit; padding: 14px 18px; border-radius: 14px; border: 1.5px solid rgba(157,92,255,.5); background: rgba(21,11,54,.7); color: #fff; text-align: center; }
+    .name-row input:focus, .song input:focus { outline: 0; border-color: var(--cyan); box-shadow: 0 0 14px rgba(60,242,255,.4); }
+    .response { min-height: 3em; margin-top: 26px; font-size: 1.2rem; font-weight: 600; }
+    .tally { margin-top: 10px; color: var(--soft); font-size: .95rem; }
+
+    .song { max-width: 520px; margin: 0 auto; display: flex; gap: 10px; }
+    .song input { text-align: left; }
+    .song .btn { flex: none; padding: 12px 22px; }
+    .playlist { list-style: none; padding: 0; margin: 24px auto 0; max-width: 520px; text-align: left; display: grid; gap: 8px; }
+    .playlist li { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 14px; background: rgba(21,11,54,.7); animation: slide .4s ease; }
+    .playlist li b { color: var(--pink); }
+    .playlist .vote { margin-left: auto; font: inherit; background: none; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; color: #fff; padding: 4px 12px; cursor: pointer; }
+    .playlist .vote.on { border-color: var(--pink); color: var(--pink); }
+    @keyframes slide { from { opacity: 0; transform: translateX(-20px); } }
+
+    footer { text-align: center; padding: 40px 20px 110px; color: var(--soft); }
+
+    @media (max-width: 640px) {
+      .details { grid-template-columns: 1fr; }
+      .rsvp-btns { grid-template-columns: 1fr; }
+      .count div { width: 76px; }
+      .count b { font-size: 2.1rem; }
+      .sign { padding: 22px 18px 28px; }
+      .timeline::before { left: 56px; }
+      .t-item { grid-template-columns: 56px 1fr; }
+      .t-item::after { left: 50px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <header class="hero">
+    <div>
+      <div class="sign">
+        <p class="pre neon-cyan" data-text="theme"></p>
+        <div class="eighteen neon-pink" data-text="age"></div>
+        <h1 id="headline"></h1>
+      </div>
+      <p class="when" data-text="whenLabel"></p>
+      <a class="btn" href="#rsvp">Are you in?</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <h2 class="title neon-cyan">Countdown</h2>
+      <div class="count">
+        <div><b id="d">0</b><small>days</small></div>
+        <div><b id="h">0</b><small>hours</small></div>
+        <div><b id="m">0</b><small>min</small></div>
+        <div><b id="s">0</b><small>sec</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap details" id="details"></div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="title neon-pink">The night</h2>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <section id="rsvp">
+    <div class="wrap">
+      <h2 class="title neon-cyan">Are you in?</h2>
+      <div class="name-row"><input id="name" placeholder="Your name" aria-label="Your name"></div>
+      <div class="rsvp-btns">
+        <button class="answer" style="--c:var(--cyan)" data-answer="going"><span>🔥</span><strong>Going</strong></button>
+        <button class="answer" style="--c:var(--yellow)" data-answer="maybe"><span>🤔</span><strong>Maybe</strong></button>
+        <button class="answer" style="--c:var(--pink)" data-answer="cant"><span>😢</span><strong>Can't</strong></button>
+      </div>
+      <p class="response" id="response"></p>
+      <p class="tally" id="tally"></p>
+      <a class="btn" id="sendAnswer" href="#" target="_blank" rel="noopener" style="display:none;margin-top:22px"></a>
+    </div>
+  </section>
+
+  <section style="padding-top:20px">
+    <div class="wrap">
+      <h2 class="title neon-pink">Request a song</h2>
+      <form class="song" id="songForm"><input id="song" placeholder="Artist – Song" aria-label="Song"><button class="btn" type="submit">Add</button></form>
+      <ul class="playlist" id="playlist"></ul>
+    </div>
+  </section>
+
+  <footer data-text="footer"></footer>
+
+  <script src="render.js"></script>
+  <script src="data/party.js"></script>
+  <script>
+    // Fill the page from DATA
+    const headline = `${DATA.name} turns ${DATA.age}`;
+    document.title = `${headline} · ${DATA.theme}`;
+    bindData(DATA);
+    document.getElementById("headline").textContent = headline;
+    if (DATA.heroImage) document.querySelector(".hero").style.background =
+      `linear-gradient(rgba(11,6,32,.72), rgba(11,6,32,.88) 75%, #0B0620), url("${DATA.heroImage}") center/cover`;
+    document.getElementById("sendAnswer").textContent = `Send my answer to ${DATA.name}`;
+    fill("#details", DATA.details, (d) => `
+      <div class="detail"><div class="ico">${esc(d.icon)}</div><h3>${esc(d.title)}</h3>
+        <p>${esc(d.text)}${d.mapQuery ? `<br><a href="${esc(mapLink(d.mapQuery))}" target="_blank" rel="noopener">Open map →</a>` : ""}</p></div>`);
+    fill("#timeline", DATA.timeline, (t) =>
+      `<div class="t-item"><time>${esc(t.time)}</time><div><h3>${esc(t.title)}</h3><p>${esc(t.text)}</p></div></div>`);
+
+    // Stars
+    const stars = document.getElementById("stars");
+    for (let i = 0; i < 80; i++) {
+      const s = document.createElement("i");
+      s.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;animation-delay:${Math.random() * 3}s`;
+      stars.appendChild(s);
+    }
+
+    // Countdown
+    const PARTY = new Date(DATA.start);
+    const pad = (n) => String(n).padStart(2, "0");
+    function tick() {
+      let s = Math.max(0, Math.floor((PARTY - new Date()) / 1000));
+      document.getElementById("d").textContent = Math.floor(s / 86400); s %= 86400;
+      document.getElementById("h").textContent = pad(Math.floor(s / 3600));
+      document.getElementById("m").textContent = pad(Math.floor((s % 3600) / 60));
+      document.getElementById("s").textContent = pad(s % 60);
+    }
+    tick(); setInterval(tick, 1000);
+
+    // Timeline lights up while scrolling
+    const io = new IntersectionObserver((es) => es.forEach((e) => e.target.classList.toggle("lit", e.isIntersecting)), { rootMargin: "-35% 0px -35% 0px" });
+    document.querySelectorAll(".t-item").forEach((el) => io.observe(el));
+
+    // 3-answer RSVP → sent to the host on WhatsApp
+    const STORAGE_KEY = "rsvp-" + DATA.start;
+    const REPLIES = {
+      going: (n) => `🔥 Yesss${n ? ", " + n : ""}! See you on the dance floor.`,
+      maybe: (n) => `🤔 We'll save you a glow stick${n ? ", " + n : ""}. Decide soon!`,
+      cant: (n) => `😢 We'll miss you${n ? ", " + n : ""}! Cake will be eaten in your honour.`,
+    };
+    const answers = document.querySelectorAll(".answer");
+    function choose(a, save = true) {
+      answers.forEach((b) => b.classList.toggle("on", b.dataset.answer === a));
+      const name = document.getElementById("name").value.trim();
+      document.getElementById("response").textContent = REPLIES[a](name);
+      const t = { ...DATA.rsvp.counts }; t[a]++;
+      document.getElementById("tally").textContent = `${t.going} going · ${t.maybe} maybe · ${t.cant} can't`;
+      if (save) try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ a, name })); } catch (e) {}
+      const label = { going: "🔥 Going", maybe: "🤔 Maybe", cant: "😢 Can't come" }[a];
+      const send = document.getElementById("sendAnswer");
+      send.href = waLink(DATA.rsvp.whatsapp, `${headline} — ${name || "Guest"}: ${label}`);
+      send.style.display = "inline-block";
+    }
+    answers.forEach((b) => b.addEventListener("click", () => choose(b.dataset.answer)));
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      if (saved) { document.getElementById("name").value = saved.name; choose(saved.a, false); }
+    } catch (e) {}
+
+    // Song requests
+    const playlist = document.getElementById("playlist");
+    function addSong(title, votes = 0) {
+      const li = document.createElement("li");
+      li.innerHTML = `<b>♫</b><span></span><button class="vote">▲ ${votes}</button>`;
+      li.querySelector("span").textContent = title;
+      const v = li.querySelector(".vote");
+      v.addEventListener("click", () => { const on = v.classList.toggle("on"); v.textContent = `▲ ${votes + (on ? 1 : 0)}`; });
+      playlist.prepend(li);
+    }
+    DATA.songs.forEach((s) => addSong(s.title, s.votes));
+    document.getElementById("songForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const input = document.getElementById("song");
+      if (input.value.trim()) addSong(input.value.trim());
+      input.value = "";
+    });
+  </script>
+  <script src="badge.js"></script>
+</body>
+</html>
